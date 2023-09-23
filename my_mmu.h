@@ -74,8 +74,6 @@ void* my_malloc(size_t size) {
         return my_malloc(size); // can be optimized here
 }
 
-
-
 // Function to allocate and initialize memory to zero using mmap
 void* my_calloc(size_t nelem, size_t size) {
     // Your implementation of my_calloc goes here
@@ -124,12 +122,11 @@ void my_free(void* ptr) {
             //if current .next.free = 1 then coalesce
             return;
         }
-        printf("current = %p, ptr = %p, current->free = %d\n", current, ptr, current->free);
+        //printf("current = %p, ptr = %p, current->free = %d\n", current, ptr, current->free);
         previous = current;
         current = current->next;        
         next_block = current->next;
     }
-    
 }
 
 

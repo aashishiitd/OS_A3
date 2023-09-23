@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
-#include "my_mmu_boilerplate.h"
+#include "my_mmu.h"
 
 #define NUM_ALLOCS 1000 // Number of allocations to test
 

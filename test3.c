@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "my_mmu_boilerplate.h"
+#include "my_mmu.h"
 
 #define NUM_ALLOCS 10000 // Number of allocations to test
 #define MAX_SIZE    1024 // Maximum allocation size (bytes)

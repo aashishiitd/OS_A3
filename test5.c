@@ -1,4 +1,4 @@
-#include "my_mmu_boilerplate.h"
+#include "my_mmu.h"
 #include <stdio.h>
 #include <stdlib.h>
 

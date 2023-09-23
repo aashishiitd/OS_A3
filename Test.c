@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "my_mmu_boilerplate.h"
+#include "my_mmu.h"
 
 int main()
 {   
