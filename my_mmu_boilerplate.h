@@ -92,13 +92,43 @@ void* my_calloc(size_t nelem, size_t size) {
         memset(ptr, 0, c_size);
     }
 
-    return ptr;
-   
+    return ptr;   
 }
 
 // Function to release memory allocated using my_malloc and my_calloc
 void my_free(void* ptr) {
     // Your implementation of my_free goes here
+    if(ptr == NULL) return;
+
+    if(list_start == NULL) return;//error
+
+    block* current = (block*)list_start;
+    block* previous = NULL;
+    block* next_block = current->next;
+    while (current != NULL){
+        //printf("current = %p, ptr = %p, current->free = %d\n", current, ptr, current->free);
+        if (((void*)current + sizeof(block)) == ptr && current->free == 0){
+            current->free = 1;
+            if(previous != NULL && previous->free == 1){
+                //coalesce
+                previous->size = previous->size + current->size + sizeof(block);
+                previous->next = current->next;
+                current = previous;
+            }
+             if(next_block != NULL && next_block->free == 1){
+                //coalesce
+                current->size = next_block->size + current->size + sizeof(block);
+                current->next = next_block->next;
+            }
+            //if current.previous.free = 1 then coalesce
+            //if current .next.free = 1 then coalesce
+            return;
+        }
+        printf("current = %p, ptr = %p, current->free = %d\n", current, ptr, current->free);
+        previous = current;
+        current = current->next;        
+        next_block = current->next;
+    }
     
 }
 

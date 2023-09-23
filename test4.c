@@ -14,6 +14,7 @@ int main() {
         for (int i = 0; i < 5; i++) {
             printf("%d ", arr1[i]); // Should print 0 1 2 3 4
         }
+        print("\n");
         //free(arr1);
     } else {
         printf("Test case 1 failed: Allocation failed.\n");
@@ -36,9 +37,9 @@ int main() {
     // Additional test cases can be added here
 
     // Check for memory leaks using Valgrind
-    printf("Checking for memory leaks using Valgrind...\n");
-    fflush(stdout);
-    system("valgrind --leak-check=full ./your_program_name");
+    // printf("Checking for memory leaks using Valgrind...\n");
+    // fflush(stdout);
+    //system("valgrind --leak-check=full ./your_program_name");
 
     return 0;
 }
