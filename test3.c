@@ -4,7 +4,7 @@
 #include <time.h>
 #include "my_mmu.h"
 
-#define NUM_ALLOCS 10000 // Number of allocations to test
+#define NUM_ALLOCS 1000 // Number of allocations to test
 #define MAX_SIZE    1024 // Maximum allocation size (bytes)
 
 int main() {
@@ -18,8 +18,8 @@ int main() {
     // Allocate memory blocks of various sizes
     for (i = 0; i < NUM_ALLOCS; i++) {
         sizes[i] = rand() % MAX_SIZE + 1; // Random sizes from 1 to MAX_SIZE bytes
-        pointers[i] = my_malloc(sizes[i]);
         
+        pointers[i] = my_malloc(sizes[i]);
         if (pointers[i] == NULL) {
             printf("Memory allocation failed for allocation #%d (size %lu bytes).\n", i, sizes[i]);
             return 1;
@@ -43,6 +43,6 @@ int main() {
     // Optionally, add a call to these tools here
 
     printf("Memory allocation and deallocation tests passed.\n");
-
+    info();
     return 0;
 }

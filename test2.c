@@ -35,6 +35,6 @@ int main() {
     }
 
     printf("Memory allocation and deallocation tests passed.\n");
-
+    info();
     return 0;
 }

@@ -129,6 +129,16 @@ void my_free(void* ptr) {
     }
 }
 
+// Function to print the blocks in the free list
+void info(){
+    block* current = (block*)list_start;
+    int i = 0;
+    while (current != NULL){
+        printf("Block %d: %p, size = %d, free = %d\n", i, current, current->size, current->free);
+        current = current->next;
+        i++;
+    }
+}
 
 
 

@@ -15,7 +15,9 @@ int main() {
             printf("%d ", arr1[i]); // Should print 0 1 2 3 4
         }
         printf("\n");
-        //free(arr1);
+        info();
+        my_free(arr1);
+        info();
     } else {
         printf("Test case 1 failed: Allocation failed.\n");
     }
