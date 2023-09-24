@@ -59,7 +59,7 @@ void* my_malloc(size_t size) {
         current = current->next;
         
     }
-        printf(" current size : %d & Size asked is =%d\n", current->size,size);
+        //printf(" current size : %d & Size asked is =%d\n", current->size,size);
         block* new_block = (block*)mmap(NULL, PAGE_SIZE*NUM_PAGES, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
         if (new_block == MAP_FAILED) {
             perror("mmap");
@@ -70,7 +70,7 @@ void* my_malloc(size_t size) {
         new_block->free = 1;
         current->next = new_block;
         
-        printf("Size value : %d\n", size);
+        //printf("Size value : %d\n", size);
         return my_malloc(size); // can be optimized here
 }
 
@@ -122,7 +122,6 @@ void my_free(void* ptr) {
             //if current .next.free = 1 then coalesce
             return;
         }
-        //printf("current = %p, ptr = %p, current->free = %d\n", current, ptr, current->free);
         previous = current;
         current = current->next;        
         next_block = current->next;
@@ -133,11 +132,14 @@ void my_free(void* ptr) {
 void info(){
     block* current = (block*)list_start;
     int i = 0;
+    printf("NOTE : 0 means Not Free(Occupied) and 1 means Free\n");
+    printf("Memory blocks :\n");
     while (current != NULL){
         printf("Block %d: %p, size = %d, free = %d\n", i, current, current->size, current->free);
         current = current->next;
         i++;
     }
+    printf("----------------------------------------------\n");
 }
 
 

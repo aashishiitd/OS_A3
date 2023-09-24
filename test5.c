@@ -25,7 +25,9 @@ int main() {
     int* arr2 = (int*)my_malloc(sizeof(int));
     if (arr2 != NULL) {
         printf("Test case 2: Allocated memory successfully.\n");
+        info();
         my_free(arr2);
+        info();
         printf("First free successful.\n");
         // my_free(arr2); // Ensure that this doesn't cause an error
         // printf("Second free successful.\n");
